@@ -1,2 +1,3 @@
 git checkout -- filename:就是让这个文件回到最近一次git commit或git add时的状态。
 git reset --hard 1094a：版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。
+git remote add origin git@github.com:zhangjibo/Learn.git
