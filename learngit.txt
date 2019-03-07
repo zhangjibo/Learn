@@ -35,4 +35,10 @@ git mergeÃüÁîÓÃÓÚºÏ²¢Ö¸¶¨·ÖÖ§µ½µ±Ç°·ÖÖ§¡£ºÏ²¢ºó£¬ÔÙ²é¿´readme.txtµÄÄÚÈİ£¬¾Í¿ÉÒÔ¿
 
 µ±È»£¬Ò²²»ÊÇÃ¿´ÎºÏ²¢¶¼ÄÜFast-forward£¬ÎÒÃÇºóÃæ»á½²ÆäËû·½Ê½µÄºÏ²¢
 
-½â¾ö³åÍ»½â¾ö³åÍ»½â¾ö³åÍ»½â¾ö³åÍ»
+½â¾ö³åÍ»
+$ git merge feature1
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+¹ûÈ»³åÍ»ÁË£¡Git¸æËßÎÒÃÇ£¬readme.txtÎÄ¼ş´æÔÚ³åÍ»£¬±ØĞëÊÖ¶¯½â¾ö³åÍ»ºóÔÙÌá½»¡£git statusÒ²¿ÉÒÔ¸æËßÎÒÃÇ³åÍ»µÄÎÄ¼ş£º
+GitÓÃ<<<<<<<£¬=======£¬>>>>>>>±ê¼Ç³ö²»Í¬·ÖÖ§µÄÄÚÈİ
