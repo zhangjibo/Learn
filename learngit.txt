@@ -42,3 +42,4 @@ CONFLICT (content): Merge conflict in readme.txt
 Automatic merge failed; fix conflicts and then commit the result.
 果然冲突了！Git告诉我们，readme.txt文件存在冲突，必须手动解决冲突后再提交。git status也可以告诉我们冲突的文件：
 Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容
+用带参数的git log命令：git log --graph --pretty=oneline --abbrev-commit可以看到分支的合并情况
