@@ -162,4 +162,27 @@ diff --git a/readme.txt b/readme.txt
 
 $ git tag -a v0.1 -m "version 0.1 released" 1094adb
 
+配置别名
+有没有经常敲错命令？比如git status？status这个单词真心不好记。
+
+如果敲git st就表示git status那就简单多了，当然这种偷懒的办法我们是极力赞成的。
+
+我们只需要敲一行命令，告诉Git，以后st就表示status：
+
+$ git config --global alias.st status
+好了，现在敲git st看看效果。
+
+当然还有别的命令可以简写，很多人都用co表示checkout，ci表示commit，br表示branch：
+
+$ git config --global alias.co checkout
+$ git config --global alias.ci commit
+$ git config --global alias.br branch
+以后提交就可以简写成：
+
+$ git ci -m "bala bala bala..."
+--global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用
+甚至还有人丧心病狂地把lg配置成了：
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 
