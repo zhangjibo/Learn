@@ -1,0 +1,57 @@
+
+monkey -p com.chainyoung.trademarket_test 10000 |  screenrecord /mnt/sdcard/1.mp4
+
+
+
+//进入交互模式
+adb shell
+//列出网络传输包情况
+iftop
+//显示各种网络相关信息
+netstat
+//实时查看网络连接量
+ping www.baidu.com
+//实时查看网络连接量
+ping6 www.baidu.com
+//屏幕录像，保存路径为/mnt/sdcard/1.mp4，需要注意的是屏幕录像只支持android4.4以上的设备使用ctrl+c停止录像
+screenrecord /mnt/sdcard/1.mp4
+//将sd卡路径下的1.mp4导出到F盘(先退出交互模式)
+adb pull /mnt/sdcard/1.mp4 f:\
+//截图
+screencap /mnt/sdcard/1.png
+
+
+//输出系统状态信息至F:\test\dumpstate.txt，由于需要root权限，所以没root的过的手机输出为空
+adb shell dumptate >F:\test\dumpstate.txt
+//输出过去系统的状态，log，一般操作过程中未抓取log的时候一旦出现问题就使用这个命令来查看
+adb shell bugreport >F:\test\bugreport.txt
+//输出内核信息
+adb shell dmesg
+//输出当前缓冲区日志 并保存
+adb shell logcat    >F:\test\bugreport.txt
+//输出内存信息
+adb shell dumpsys meminfo
+//输出当前CPU使用情况信息
+adb shell dumpsys cpuinfo
+//输出当前activity使用情况信息
+adb shell dumpsys activity
+//相当于过滤，只找名为"mF"的activity使用情况信息
+adb shell dumpsys activity | find "mF"
+//获取按键信息，在手机没有按键 信息的情况下会先提示你每个设备的ID代表的设备信息，按键过程中会实时刷新
+adb shell getevent
+//获取系统属性
+adb shell getprop
+//查看pm帮助信息
+adb shell pm
+//查看手机内的安装包列表
+adb shell pm list packages
+//查看当前手机进程信息
+adb shell ps
+//获取cpu使用情况，只查看一次，不实时刷新
+adb shell top -n 1
+//获取前十的cpu使用情况，只查看一次，不实时刷新
+adb shell top   -n 1 -m 10
+//查询各进行内存消耗情况
+adb shell procrank
+//详细查询某个包的内存使用情况
+adb shell dumpsys meminfo packageName
