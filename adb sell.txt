@@ -1,6 +1,8 @@
 
 monkey -p com.chainyoung.trademarket_test 10000 |  screenrecord /mnt/sdcard/1.mp4
 
+adb shell monkey -v -v -v -s 8888 --throttle 300 --pct-touch 30 --pct-motion 25 --pct-appswitch 25 --pct-majornav 5 --pct-nav 0 --pct-trackball 0 -p com.chainyoung.trademarket 10000 >D:\monkey.txt
+
 
 
 //进入交互模式
