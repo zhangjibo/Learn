@@ -1,1 +1,0 @@
-pip3 install aiohttp -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
