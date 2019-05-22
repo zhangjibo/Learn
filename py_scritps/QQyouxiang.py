@@ -5,10 +5,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-wd = webdriver.Chrome(chrome_options=chrome_options)
-#wd = webdriver.Chrome()
+# chrome_options = Options()
+# chrome_options.add_argument("--headless")
+# wd = webdriver.Chrome(chrome_options=chrome_options)
+wd = webdriver.Chrome()
 wd.implicitly_wait(5)
 
 wd.get('https://mail.qq.com/')
@@ -17,22 +17,23 @@ wd.get('https://mail.qq.com/')
 login_frame = wd.find_element_by_id('login_frame')
 wd.switch_to.frame(login_frame)
 
-wd.find_element_by_id('switcher_plogin').click()
-print(wd.find_element_by_id('u').size)
-wd.find_element_by_id('u').send_keys('2113172527')
-wd.find_element_by_id('p').send_keys('cc.,2015')
-wd.find_element_by_id('login_button').click()
-wd.find_element_by_id('readmailbtn_link').click()
-wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
+
+def login(account, password):
+    wd.find_element_by_id('switcher_plogin').click()
+    #print(wd.find_element_by_id('u').size)
+    wd.find_element_by_id('u').send_keys(account)
+    wd.find_element_by_id('p').send_keys(password)
+    wd.find_element_by_id('login_button').click()
+    wd.find_element_by_id('readmailbtn_link').click()
+    wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
+
 
 def check():
-
     current_handle = wd.current_window_handle
-
     eles = wd.find_elements_by_css_selector('.toarea .F, .toarea .M')
     count = len(eles)
 
-    for i in range (count):
+    for i in range(count):
         ele = eles[i]
         ActionChains(wd).context_click(ele).perform()
         wd.find_elements_by_css_selector('.menu_item')[1].click()
@@ -56,6 +57,8 @@ def check():
 
         wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
 
+
+login('2113172527','cc.,2015')
 n = 1
 while n <= 18:
     check()
