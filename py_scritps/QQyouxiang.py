@@ -16,16 +16,16 @@ wd.get('https://mail.qq.com/')
 
 login_frame = wd.find_element_by_id('login_frame')
 wd.switch_to.frame(login_frame)
+sleep(2)
 
 
-def login(account, password):
-    wd.find_element_by_id('switcher_plogin').click()
-    #print(wd.find_element_by_id('u').size)
-    wd.find_element_by_id('u').send_keys(account)
-    wd.find_element_by_id('p').send_keys(password)
-    wd.find_element_by_id('login_button').click()
-    wd.find_element_by_id('readmailbtn_link').click()
-    wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
+wd.find_element_by_id('switcher_plogin').click()
+print(wd.find_element_by_id('u').size)
+wd.find_element_by_id('u').send_keys('2113172527')
+wd.find_element_by_id('p').send_keys('cc.,2015')
+wd.find_element_by_id('login_button').click()
+wd.find_element_by_id('readmailbtn_link').click()
+wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
 
 
 def check():
@@ -57,8 +57,6 @@ def check():
 
         wd.switch_to.frame(wd.find_element_by_id('mainFrame'))
 
-
-login('2113172527','cc.,2015')
 n = 1
 while n <= 18:
     check()
