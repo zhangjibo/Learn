@@ -1,1 +1,2 @@
 pip3 install aiohttp -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com  redis
