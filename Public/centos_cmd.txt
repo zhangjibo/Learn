@@ -1,0 +1,35 @@
+[root@centos7 Packages]# ls *.rpm | grep -Eo "\.\<[[:alnum:]_]+\>\.rpm$" | cut -d . -f2 | sort | uniq -c
+   2258 i686
+   3122 noarch
+   4639 x86_64
+
+
+##########################   ´î½¨httpd   #############################
+wget http://mirrors.tuna.tsinghua.edu.cn/apache//httpd/httpd-2.4.39.tar.bz2
+
+tar xvf httpd-2.4.39.tar.bz2 -C /usr/local/src/
+
+yum erase epel-release
+
+
+yum groupinstall Development tools
+
+mkdir /apps
+
+yum install apr-devel.x86_64  apr-util-devel.x86_64
+
+wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+yum install epel-release-7.noarch.rpm
+
+./configure --prefix=/apps/httpd24 --sysconfdir=/etc/httpd24  --enable-http2
+
+
+make -j 4
+
+make
+
+echo 'PATH=/apps/httpd24/bin:$PATH' > /etc/profile.d/httpd24.sh
+
+. /etc/profile.d/httpd24.sh 
+

@@ -81,3 +81,61 @@ SyntaxError: invalid syntax
 1
 # vi /usr/libexec/urlgrabber-ext-down
 将第一行"#!/usr/bin/python" 改为 "#!/usr/bin/python2"即可。
+###########################################################################
+centos7 使用nmon简要
+
+
+下载：
+nmon安装包：
+http://nmon.sourceforge.net/pmwiki.php?n=Site.Download
+选择适合自己系统的版本
+centos7_x86_64适合的最新nmon版本为：
+nmon16e_mpginc.tar.gz 3.5MB
+
+nmon_analyser工具：
+https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Power+Systems/page/nmon_analyser
+下载后直接解压出模板（nmon analyser v51_2.xlsm），用于最后制图
+
+ 安装：
+
+1.nmon安装
+
+解压安装包 将nmon_x86_64_centos7文件重命名为nmon 修改权限为777
+
+然后移动到/usr/bin 目录下，无需再添加环境变量 （重启系统后，任何环境下直接输入nmon即可运行nmon）
+
+2.nmon analyser安装
+
+在Windows下解压压缩包，保留nmon analyser v51_2.xlsm文件即可
+
+使用：
+
+1).采集数据：
+#nmon -s10 -c60 -f -m /home/
+
+参数解释：
+-s10 每 10 秒采集一次数据。
+-c60 采集 60 次，即为采集十分钟的数据。
+-f 生成的数据文件名中包含文件创建的时间。
+-m 生成的数据文件的存放目录
+
+可以通过命令看到nmon在后台运行
+# ps -ef|grep nmon
+
+2）结果处理
+nmon 输出文件的命名方式为：服务器名_日期时间.nmon
+如：localhost_170616_0138.nmon
+
+通过以下命令，将.nmon文件转化成.csv文件，在当前目录生成对应的.csv文件
+sort localhost_170616_0138.nmon>localhost_170616_0138.csv
+
+ 
+
+
+通过nmon analyser工具（nmon analyser v51_2.xlsm）将CSV文件转化为excel文件
+
+nmon analyser直接解压到Windows上，保留.xlsm文件即可
+在nmon analyser v51_2.xlsm中添加nmon数据打开CSV文件即可转换成Excel文件
+
+nmon analyser v51_2.xlsm基于宏 WPS没有宏
+Windows 必须安装Microsoft office
