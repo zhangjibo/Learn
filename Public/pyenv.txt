@@ -1,0 +1,41 @@
+从最小的系统开始
+
+pyenv安装方式
+
+pyenv安装使用git
+yum install git -y
+Python安装依赖
+yum -y install gcc make patch gdbm-devel openssl-devel sqlite-devel readline-devel zlib-devel bzip2-devel
+创建用户python
+useradd python
+
+使用python用户登录
+curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+在python用户的~/.bash_profile中追加：
+export PATH="/home/python/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+source ~/.bash_profile
+
+安装指定版本
+pyenv install 3.6.5 -v
+
+mkdir zjb/projects/cmdb -p
+
+cd zjb/projexts/cmdb
+[python@zhang-jibo cmdb]$ pyenv virtualenv 3.6.5 zjb65  #设置虚拟环境
+pyenv local 3.6.5   #指定目录使用3.6.5版本
+
+再安装3.7.4版本
+yum install libffi-devel -y #Python3.7中缺少libffi-devel依赖
+[python@zhang-jibo ~]$ pyenv install -v 3.7.4
+
+打开一个新窗口创建目录web
+
+[python@zhang-jibo web]$ pyenv virtualenv 3.7.4 zjb374  #设置虚拟环境
+pyenv local zjb374 #该目录使用虚拟环境
+
+################################
+ipython notebook：集文本、代码、图像、公式的展现于一体的超级python web界面，从python4.0开始改名成为jupyter notebook

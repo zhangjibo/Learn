@@ -27,9 +27,44 @@ yum install epel-release-7.noarch.rpm
 
 make -j 4
 
-make
+make install
 
 echo 'PATH=/apps/httpd24/bin:$PATH' > /etc/profile.d/httpd24.sh
 
 . /etc/profile.d/httpd24.sh 
 
+cd /etc/httpd24/
+
+vim httpd.conf 
+
+apachectl # 开启服务
+
+apachectl stop #关闭服务
+
+1.使用命令? firewall-cmd --state查看防火墙状态。得到结果是running或者not running
+
+2.在running 状态下，向firewall 添加需要开放的端口
+命令为 firewall-cmd --permanent --zone=public --add-port=8080/tcp //永久的添加该端口。去掉--permanent则表示临时。
+
+4.firewall-cmd --reload //加载配置，使得修改有效。
+
+5.使用命令 firewall-cmd --permanent --zone=public --list-ports //查看开启的端口，出现8080/tcp这开启正确
+
+6.再次使用外部浏览器访问，这出现tomcat的欢迎界面。
+
+
+补充（CentOS7以下有专门的防火墙操作命令）：
+
+开启防火墙的命令
+?systemctl start firewalld.service
+关闭防火墙的命令
+??????? systemctl stop firewalld.service
+
+开机自动启动
+??????? systemctl enable firewalld.service
+
+关闭开机自动启动
+??????? systemctl disable firewalld.service
+
+查看防火墙状态
+??????? systemctl status firewalld下列显示表示

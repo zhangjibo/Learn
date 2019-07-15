@@ -1,0 +1,8 @@
+pip install aiohttp -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+pipÕ®”√≈‰÷√
+mkdir ~/.pip
+vim ~/.pip/pip.conf
+[global]
+index-url=https://mirrors.aliyun.com/pypi/simple/
+trusted-host=mirrors.aliyun.com

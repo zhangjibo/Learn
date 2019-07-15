@@ -1,0 +1,28 @@
+
+1.±à¼­ÅäÖÃÎÄ¼þ
+
+[root@zhang-jibo network-scripts]# cat ifcfg-eth0 
+TYPE=Ethernet
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.31.138
+GATEWAY=192.168.31.1
+PREFIX=24
+PROXY_METHOD=none
+BROWSER_ONLY=no
+DNS1=114.114.114.114
+DEFROUTE=yes
+PEERDNS=no
+IPV4_FAILURE_FATAL=no
+IPV6INIT=no
+NAME="System eth0"
+UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
+
+2.¹Ø±Õ·À»ðÇ½
+
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+
+3.ÖØÆôÍøÂç
+
+systemctl restart network.service
