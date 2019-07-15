@@ -39,3 +39,5 @@ pyenv local zjb374 #该目录使用虚拟环境
 
 ################################
 ipython notebook：集文本、代码、图像、公式的展现于一体的超级python web界面，从python4.0开始改名成为jupyter notebook
+pip install jupyter
+jupyter notebook --ip=192.168.31.138 --port=8993 # 开启前需要关闭防火墙
