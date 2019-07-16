@@ -1,0 +1,33 @@
+wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+
+yum -y install mysql57-community-release-el7-10.noarch.rpm
+
+yum -y install mysql-community-server
+
+ 首先启动MySQL
+
+[root@localhost ~]# systemctl start  mysqld.service
+  
+
+[root@localhost ~]# systemctl status mysqld.service
+
+要想进入MySQL还得先找出此时root用户的密码，通过如下命令可以在日志文件中找出密码:
+grep "password" /var/log/mysqld.log
+
+mysql -uroot -p
+
+mysql> set global validate_password_policy=0;
+mysql> set global validate_password_length=1;
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+
+因为安装了Yum Repository，以后每次yum操作都会自动更新，需要把这个卸载掉：
+[root@localhost ~]# yum -y remove mysql57-community-release-el7-10.noarch
+
+
+使用mysql数据库（真正的数据库，而非数据库软件），
+将所有数据库的所有表（*.*）的所有权限（all privileges）
+授予通过任何ip（%）访问的root用户，密码为123456，最后刷新（flush privileges）即可。
+mysql> grant all privileges on *.* to 'root'@'%' identified by '123456';
+mysql> flush privileges;
+
