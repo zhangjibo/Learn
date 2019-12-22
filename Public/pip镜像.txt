@@ -6,3 +6,8 @@ vim ~/.pip/pip.conf
 [global]
 index-url=https://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
+
+
+
+Ô¶³Ì¸´ÖÆ
+scp -r www.jinyongwang.com  root@192.168.31.138:/home/wwwroot/default

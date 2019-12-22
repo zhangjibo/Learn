@@ -1,0 +1,4 @@
+java -jar  jenkins.war
+
+
+D:\tomcat\webapps

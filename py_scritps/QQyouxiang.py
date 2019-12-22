@@ -5,10 +5,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 
-# chrome_options = Options()
-# chrome_options.add_argument("--headless")
-# wd = webdriver.Chrome(chrome_options=chrome_options)
-wd = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+wd = webdriver.Chrome(chrome_options=chrome_options)
+#wd = webdriver.Chrome()
 wd.implicitly_wait(5)
 
 wd.get('https://mail.qq.com/')

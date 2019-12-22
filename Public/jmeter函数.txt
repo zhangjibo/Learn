@@ -1,0 +1,30 @@
+Jmeter消息类的功能
+${__threadNum}    :得到testplan的线程数
+${__machineName}  :得到主机名字
+${__time(EEE\, d MMM yyyy)}  :返回一定格式的时间信息 。${__log(Message)}:写入log文件”…thread Name : Message” 。${__log(Message,OUT)}:输出到命令行。${__log(${VAR},,,VAR=)} ：以 “…thread Name VAR=value”形式输出到log文件。
+
+Jmeter输入类的功能
+这里Jason只介绍下${__XPath(File,//XX/XX/@XX)}  :XPath方式读了File文件的相应属性.
+
+Jmeter计算类的功能
+${__counter(X)}    :自增函数,X(true/false)来控制是否分配线程来增加.
+${__Random(X,Y,Z)} :随机函数,X为最小值,Y为最大值,Z为存储的变量名.
+
+Jmeter的Properties文件使用的功能类
+之前Jason在Jmeter的P函数及properties文件介绍了相关的内容.
+
+Jmeter的变量操作类的功能
+${__split(X,Y,Z)}   :用来分割变量用的,X为需要分割的变量或者String,Y为存储的变量名,Z为分割符.
+${__V}              :的使用主要来源于变量中含变量的情况 eg. ${A${N}} 可以用${__V(A${N})} 来显示成功.
+${__eval}           :主要用在对SQL的处理上,具体使用看下面的例子:
+* name=Smith   * column=age * table=birthdays * SQL=select ${column} from ${table} where name=’${name}’
+用${__eval(${SQL})}可以得到”select age from birthdays where name=’Smith’”.
+
+Jmeter的String操作类的功能
+${__regexFunction}  :对前一个响应进行正则规约提取.具体参考这里.
+${__char},${__unescape},${__unescapeHtml},${__escapeHtml} :主要用来对字符的编码格式的转换的.
+
+Jmeter的脚本操作类的功能
+${__javaScript(X,Y)} :主要是使用Javascript来做一些简单的操作.例如计算和字符处理等等.
+eg. ${__javaScript(‘${sp}’.slice(7\,99999))}
+${__BeanShell(X)}     :主要是利用BeanShell来实现一些具体的功能,BeanShell具体我们可以参考BeanShell.

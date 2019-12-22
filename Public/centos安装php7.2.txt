@@ -1,0 +1,78 @@
+yum -y remove httpd-tools.x86_64
+
+rm -rf /usr/lib64/php /etc/php /etc/php.d/ /etc/php.ini /usr/local/php /usr/share/php /usr/local/php
+
+yum -y remove php*
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+
+yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml
+
+cp /usr/lib64/httpd/modules/libphp7-zts.so /usr/local/src/httpd-2.4.39/modules/
+
+cp /usr/lib64/httpd/modules/libphp7-zts.so /usr/local/src/httpd-2.4.39/modules/
+
+cp /usr/lib64/httpd/modules/libphp7.so  /usr/local/src/httpd-2.4.39/modules/
+
+ 670  systemctl enable php-fpm
+  671  systemctl start php-fpm
+  672  systemctl status php-fpm
+  673  groupadd www
+  674  useradd -s /sbin/nologin -g www -M www
+
+
+yum install gcc autoconf gcc-c++ libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel readline readline-devel libxslt libxslt-devel systemd-devel openjpeg-devel
+
+
+yum install autoconf patch m4 bison bzip2-devel pam-devel gmp-devel libicu-devel curl-devel pcre-devel libtool-libs libtool-ltdl-devel libwebp-devel libXpm-devel libvpx-devel libjpeg-devel libpng-devel freetype-devel oniguruma-devel aspell-devel enchant-devel readline-devel unixODBC-devel libtidy-devel openldap-devel libxslt-devel net-snmp net-snmp-devel
+
+wget http://www.percona.com/redir/downloads/Percona-XtraDB-Cluster/5.5.37-25.10/RPM/rhel6/x86_64/Percona-XtraDB-Cluster-shared-55-5.5.37-25.10.756.el6.x86_64.rpm
+
+ 683  yum install autoconf patch m4 bison bzip2-devel pam-devel gmp-devel libicu-devel curl-devel pcre-devel libtool-libs libtool-ltdl-devel libwebp-devel libXpm-devel libvpx-devel libjpeg-devel libpng-devel freetype-devel oniguruma-devel aspell-devel enchant-devel readline-devel unixODBC-devel libtidy-devel openldap-devel libxslt-devel net-snmp net-snmp-devells
+
+  685  tar zxvf php-7.2.10.tar.gz
+  686  cd php-7.2.10/
+
+
+./configure  --prefix=/usr/local/src/php --with-config-file-path=/usr/local/src/php/etc --with-zlib-dir --with-freetype-dir --enable-mbstring --with-libxml-dir=/usr --enable-xmlreader --enable-xmlwriter --enable-soap --enable-calendar --with-curl --with-zlib --with-gd --with-pdo-sqlite --with-pdo-mysql --with-mysqli --with-mysql-sock --enable-mysqlnd --disable-rpath --enable-inline-optimization --with-bz2 --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex --enable-exif --enable-bcmath --with-mhash --enable-zip --with-pcre-regex --with-jpeg-dir=/usr --with-png-dir=/usr --with-openssl --enable-ftp --with-kerberos --with-gettext --with-xmlrpc --with-xsl --enable-fpm --with-fpm-user=www --with-fpm-group=www --with-fpm-systemd --disable-fileinfo --disable-phpdbg --disable-dtrace --enable-opcache
+
+make -j4
+
+make install
+
+cp php.ini-production /usr/local/src/php/etc/php.ini
+
+  711  cd /usr/local/src/php/etc/
+  712  ls
+  713  cp php-fpm.conf.default php-fpm.conf
+  714  vim php-fpm.conf
+  715  cd php-fpm.d/
+  716  ls
+  717  cp www.conf.defaultwww.conf
+  718  cp www.conf.default www.conf
+  719  cd ~
+  720  ls
+  721  cd php-7.2.10/
+  722  cp ./sapi/fpm/php-fpm.service /usr/lib/systemd/system/
+  723  systemctl enable php-fpm
+  724   systemctl start php-fpm
+  725  systemctl status php-fpm
+  726  vim  /etc/profile
+  727  . /etc/profile
+  728  php -v
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+cd /opt
+  156  ls
+  157  tar -zxvf apache-tomcat-8.5.49.tar.gz 
+  158  ls
+  159  cd apache-tomcat-8.5.49/bin/
+  160  ls
+  161  ./startup.sh 
+  162  systemctl status firewalld
+  163  ip a
+  164  cd /etc/sysconfig/
+  165  ls
+  166  vim firewalld 
+  167  iptables -L -n
+  168  systemctl stop firewalld
+  169  systemctl mask firewalld
+  170  yum install iptables-services
+  171  systemctl enable iptables
+  172  systemctl start iptables
+  173  service iptables save
+  174  systemctl [stop|start|restart] iptables
+  175  vim /etc/sysconfig/iptables
+  176  service iptables restart
